@@ -1,0 +1,22 @@
+name: frontend-master-workflow
+
+on: 
+  push:
+    branches:
+      - mai
+jobs:
+  Building_jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout codes
+        uses: actions/checkout@v4
+      - name: Configure AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{secret.AWS_ACCESSKEY}}
+          aws-secret-access-key: ${{secret.AWS_SECRETEKEY}}
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+         terraform_version: "1.1.7"
