@@ -1,4 +1,4 @@
-name: Snyk Security Scansess
+name: Snyk Security Scansessg
 
 on:
   push:
